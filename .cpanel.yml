@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/acdlabssc/expenses.greatmachineinthesky.com/
+    - export DEPLOYPATH=/home/acdlabsc/expenses.greatmachineinthesky.com/
     - /bin/cp -R public/. $DEPLOYPATH
