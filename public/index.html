@@ -1,0 +1,113 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Expenses App</title>
+  <meta name="description" content="HTML5 Expenses">
+  <meta name="author" content="adamd9">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <script src="js/login.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/expenses.js"></script>
+  <script src="js/forecast.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha256-TQq84xX6vkwR0Qs1qH5ADkP+MvH0W+9E7TdHJsoIQiM=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+
+</head>
+
+<body>
+  <div id="login-form" class="overlay">
+    <h1>Expenses</h1>
+    <!-- <div> -->
+      <label>Username
+        <input type="text" id="username" name="username" onkeypress="handleEnterOnLogin(event)" required>
+      </label>
+    <!-- </div>
+    <div> -->
+      <label>Password
+        <input type="password" id="password" name="password" onkeypress="handleEnterOnLogin(event)" required>
+      </label>
+    <!-- </div>
+    <div> -->
+      <button id="loginSubmit" type="submit">Login</button>
+    <!-- </div> -->
+  </div>
+  <div id="expenses-form" class="container hide">
+    <button id="logoutSubmit" type="submit">Logout</button>
+    <h1>Expenses App</h1>
+
+    <h3>Run Balance Forecast</h3>
+    <p>
+      <label>Starting balance
+        <input id="forecast-starting-balance" type="number" step="0.01" value="0" onfocus="this.select();">
+      </label>
+      <label>Account
+        <select id="forecast-account" name="forecast-account">
+          <option value="Primary" selected="selected">Primary</option>
+          <option value="Secondary">Secondary</option>
+        </select>
+      </label>
+      <label>Months to forecast
+        <input id="forecast-number-of-months" type="number" value="6" onfocus="this.select();">
+      </label>
+      <label>Start date
+        <input id="forecast-start-date" type="date">
+      </label>
+      <button id="forecastSubmit">Forecast</button>
+    </p>
+
+    <h3>New Expense</h3>
+    <p>
+      <label>Expense name
+        <input id="new-expense-name" class="primary" type="text">
+      </label>
+      <label>Type
+        <select id="new-expense-type" name="expense-type">
+          <option value="Expense" selected="selected">Expense</option>
+          <option value="Expense cover payment">Expense cover payment</option>
+        </select>
+      </label>
+      <label>Amount
+        <input id="new-expense-amount" type="number" step="0.01" value="0" onfocus="this.select();">
+      </label>
+      <label>Account
+        <select id="new-expense-account" name="expense-account">
+          <option value="Primary" selected="selected">Primary</option>
+          <option value="Secondary">Secondary</option>
+        </select>
+      </label>
+      <label>Frequency
+        <select id="new-expense-frequency" name="expense-frequency">
+          <option value="Weekly">Weekly</option>
+          <option value="Fortnightly">Fortnightly</option>
+          <option value="Monthly" selected="selected">Monthly</option>
+          <option value="Yearly">Yearly</option>
+          <option value="Quarterly">Quarterly</option>
+        </select>
+      </label>
+      <label>Start date
+        <input id="new-expense-start-date" type="date">
+      </label>
+      <button id="add-new-expense">Add</button>
+    </p>
+
+    <h3>Expenses</h3>
+    <button id="show-totals">Show totals</button>
+    <ul id="expenses">
+
+    </ul>
+  </div>
+  <div id="forecast-form" class="hide">
+    <button id="forecastBack">⏎ Back to Expenses</button>
+    <h1>Forecast</h1>
+    <canvas id="forecast-chart" width="400" height="400"></canvas>
+    <h3>Transaction list</h3>
+    <table id="forecast-transactions">
+    </table>
+  </div>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
