@@ -1,4 +1,4 @@
-//Get expenses list for user
+//Get expenses list for user..
 var getExpenses = function() {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
