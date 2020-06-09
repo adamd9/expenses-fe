@@ -14,7 +14,7 @@ var getForecast = function() {
     '&forecaststart=' + formatDateDdMMMMyyyy(forecastStartDate.value) +
     '&forecastmonths=' + forecastNumMonths.value;
 
-  fetch("/api/expenses/forecast?" + forecastQuery, requestOptions)
+  fetch("https://adamd9expenses.herokuapp.com/api/expenses/forecast?" + forecastQuery, requestOptions)
     .then((resp) => resp.json())
     .then(function(data) {
       createTransactionForecast(data);

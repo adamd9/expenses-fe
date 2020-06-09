@@ -10,7 +10,7 @@ var getExpenses = function() {
     redirect: 'follow'
   };
 
-  fetch("/api/expenses", requestOptions)
+  fetch("https://adamd9expenses.herokuapp.com/api/expenses", requestOptions)
     .then((resp) => resp.json())
     .then(function(data) {
       if (data.message == "Failed to authenticate token.") {
@@ -179,7 +179,7 @@ var addExpense = function() {
       body: urlencoded
     };
 
-    fetch("/api/expenses", requestOptions)
+    fetch("https://adamd9expenses.herokuapp.com/api/expenses", requestOptions)
       .then(function() {
         var listItem = createNewExpenseElement(newExpense);
 
@@ -250,7 +250,7 @@ var editExpense = function() {
       body: urlencoded
     };
 
-    fetch("/api/expenses/" + expenseId, requestOptions)
+    fetch("https://adamd9expenses.herokuapp.com/api/expenses/" + expenseId, requestOptions)
       .then(function() {
         //Switch from .editMode
         //label text become the input's value
@@ -302,7 +302,7 @@ var deleteExpense = function() {
     headers: myHeaders
   };
 
-  fetch("/api/expenses/" + listItem.id, requestOptions)
+  fetch("https://adamd9expenses.herokuapp.com/api/expenses/" + listItem.id, requestOptions)
     .then((resp) => resp.json())
     .then(function() {
       //Remove the parent list item from the ul
@@ -340,7 +340,7 @@ var showTotals = function() {
     redirect: 'follow'
   };
 
-  fetch("/api/expenses/totals", requestOptions)
+  fetch("https://adamd9expenses.herokuapp.com/api/expenses/totals", requestOptions)
     .then((resp) => resp.json())
     .then(function(data) {
       alert("Primary expenses total $" + data.primary.expenses + " with cover payment of $" + data.primary.cover + "\nSecondary expenses total: $" + data.secondary.expenses + " with cover payment of $" + data.secondary.cover);

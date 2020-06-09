@@ -25,7 +25,7 @@ var login = function() {
         body: urlencoded
       };
 
-      fetch("/api/auth/login", requestOptions)
+      fetch("https://adamd9expenses.herokuapp.com/api/auth/login", requestOptions)
         .then(response => response.json())
         .then(result => handleLoginSuccess(result))
         .catch(error => handleLoginFailure(error));
