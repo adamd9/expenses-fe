@@ -7,7 +7,7 @@ Expenses App (Frontend) is a basic static front-end for the Expenses App back-en
 Just stick it on any static web server and point it at your Expenses App backend.
 
 ## Contributing
-This is a personal project, so I'm not expecting any controbutions.
+This is a personal project, so I'm not expecting any contributions.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
