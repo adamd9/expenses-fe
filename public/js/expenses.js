@@ -1,5 +1,6 @@
 //Get expenses list for user..
 var getExpenses = function() {
+  loadingIcon.classList.remove("hide");
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
   myHeaders.append("x-access-token", token);
@@ -29,6 +30,8 @@ var getExpenses = function() {
       loginForm.classList.add("hide");
       forecastForm.classList.add("hide");
       expensesForm.classList.remove("hide");
+      loadingIcon.classList.add("hide");
+
     }
 
     )
@@ -330,6 +333,7 @@ var bindExpenseEvents = function(expenseListItem) {
 }
 
 var showTotals = function() {
+  loadingIcon.classList.remove("hide");
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
   myHeaders.append("x-access-token", token);
@@ -343,6 +347,7 @@ var showTotals = function() {
   fetch("https://adamd9expenses.herokuapp.com/api/expenses/totals", requestOptions)
     .then((resp) => resp.json())
     .then(function(data) {
+      loadingIcon.classList.add("hide");
       alert("Primary expenses total $" + data.primary.expenses + " with cover payment of $" + data.primary.cover + "\nSecondary expenses total: $" + data.secondary.expenses + " with cover payment of $" + data.secondary.cover);
     }
 

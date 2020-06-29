@@ -1,5 +1,6 @@
 //Request a forecast transaction list
 var getForecast = function() {
+  loadingIcon.classList.remove("hide");
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
   myHeaders.append("x-access-token", token);
@@ -21,6 +22,7 @@ var getForecast = function() {
       loginForm.classList.add("hide");
       expensesForm.classList.add("hide");
       forecastForm.classList.remove("hide");
+      loadingIcon.classList.add("hide");
     }
     )
     .catch(error => handleGetFailure(error));

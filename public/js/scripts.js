@@ -1,4 +1,5 @@
 
+var loadingIcon = document.getElementById("loading");
 var loginForm = document.getElementById("login-form");
 var expensesForm = document.getElementById("expenses-form");
 var forecastForm = document.getElementById("forecast-form"); //forecast
