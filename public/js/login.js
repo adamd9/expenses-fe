@@ -39,7 +39,7 @@ var handleLoginSuccess = function(res) {
   console.log("success");
   window.localStorage.setItem('access_token', res.token);
   token = res.token;
-  getExpenses();
+  authSuccess();
 }
 
 var handleLoginFailure = function(error) {

@@ -31,6 +31,21 @@ var expenseTypes = ["Expense", "Expense cover payment"];
 
 var token = window.localStorage.getItem('access_token');
 
+var authSuccess = function() {
+  loginForm.classList.add("hide");
+  expensesForm.classList.remove("hide");
+  forecastStartDate.value = new Date().toDateInputValue();
+  expenseStartDate.value = new Date().toDateInputValue();
+  //Set the click handler to the addExpense function
+
+  addButton.addEventListener("click", addExpense);
+  forecastButton.addEventListener("click", getForecast);
+  forecastBackButton.addEventListener("click", getExpenses);
+  totalsButton.addEventListener("click", showTotals);
+
+  getExpenses();
+}
+
 Date.prototype.toDateInputValue = (function() {
     var local = new Date(this);
     local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
@@ -41,18 +56,7 @@ loginButton.addEventListener("click", login);
 logoutButton.addEventListener("click", logout);
 
 if(token) {
-  loginForm.classList.add("hide");
-  expensesForm.classList.remove("hide");
-  forecastStartDate.value = new Date().toDateInputValue();
-
-  //Set the click handler to the addExpense function
-
-  addButton.addEventListener("click", addExpense);
-  forecastButton.addEventListener("click", getForecast);
-  forecastBackButton.addEventListener("click", getExpenses);
-  totalsButton.addEventListener("click", showTotals);
-
-  getExpenses();
+  authSuccess();
 } else {
   //leave login form there
 }
